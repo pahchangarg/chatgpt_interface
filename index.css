@@ -161,3 +161,30 @@ body {
   z-index: -1;
   transition: all 0.4s;
 } */
+
+.section-requirement {
+  background-image: linear-gradient(
+      to right,
+      rgba(2, 53, 113, 0.8),
+      rgba(1, 19, 41, 0.8)
+    ),
+    url(./img/rm373batch5-18.jpg);
+  padding: 20rem 0;
+  margin-top: 10rem;
+  height: 50vh;
+  position: relative;
+}
+
+.project-box {
+  background-image: linear-gradient(
+    to right,
+    rgb(109, 204, 196),
+    rgb(86, 40, 236)
+  );
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+  height: 40%;
+}
