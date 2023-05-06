@@ -71,15 +71,15 @@ body {
   text-transform: uppercase;
   display: block;
   font-size: 2rem;
-  font-weight: 400;
+  font-weight: 500;
   letter-spacing: 0.5rem;
 }
 
 .heading-primary--sub {
   display: block;
   font-size: 1rem;
-  font-weight: 200;
-  letter-spacing: 0.4rem;
+  font-weight: 300;
+  letter-spacing: 0.2rem;
 }
 
 .header__text-box {
@@ -91,6 +91,73 @@ body {
 
 .header__image-box {
   position: absolute;
-  top: 30%;
-  right: -35%;
+  top: 0%;
+  right: -50%;
 }
+
+.heading-image {
+  width: 500px;
+  height: 500px;
+  opacity: 0.6;
+}
+.btn,
+.btn:link,
+.btn:visited {
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 1.5rem 4rem;
+  display: inline-block;
+  border-radius: 3px;
+  transition: all 0.2s;
+  position: relative;
+  font-size: 0.8rem;
+  border: none;
+  cursor: pointer;
+}
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 1rem 2rem rgba(black, 0.2);
+}
+/* .btn::after {
+  transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0;
+} */
+.btn:active,
+.btn:focus {
+  outline: none;
+  transform: translateY(-1px);
+  box-shadow: 0 0.5rem 1rem rgba(black, 0.2);
+}
+.btn--main {
+  background-image: linear-gradient(
+    to right,
+    rgb(109, 204, 196),
+    rgb(86, 40, 236)
+  );
+  color: white;
+}
+
+/* .btn::after {
+  background-image: linear-gradient(
+    to right,
+    rgb(109, 204, 196),
+    rgb(86, 40, 236)
+  );
+} */
+
+.btn--animated {
+  animation: moveInBottom 0.5s ease-out 0.75s;
+  animation-fill-mode: backwards;
+}
+/* .btn::after {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  border-radius: 10rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: all 0.4s;
+} */
