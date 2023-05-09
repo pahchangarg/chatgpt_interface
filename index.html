@@ -35,20 +35,41 @@
         <div class="header__image-box">
           <img src="./img/cube.png" alt="logo" class="heading-image" />
         </div>
-        <a href="#" class="btn btn--main btn--animated">Start Elicitng</a>
+        <a href="#section-requirement" class="btn btn--main btn--animated"
+          >Start Elicitng</a
+        >
       </div>
     </header>
   </body>
   <main>
     <section class="section-about"></section>
-    <section class="section-requirement">
-      <textarea
-        class="project-box"
-        name=""
-        id=""
-        cols="30"
-        rows="10"
-      ></textarea>
+    <section class="section-requirement" id="section-requirement">
+      <form action="" class="project__form">
+        <div class="form__group">
+          <input
+            type="text"
+            class="project__name"
+            placeholder="Title of the project"
+          />
+          <label for="name" class="form__label">Title</label>
+        </div>
+        <div class="form__group">
+          <input
+            type="text"
+            class="project__description"
+            placeholder="Description of the project"
+          />
+          <label for="name" class="form__label">Description</label>
+        </div>
+        <div class="form__group">
+          <input
+            type="text"
+            class="project__field"
+            placeholder="Field of the project"
+          />
+          <label for="name" class="form__label">Field</label>
+        </div>
+      </form>
     </section>
     <section class="section-approach"></section>
     <section class="section-chatgpt"></section>
