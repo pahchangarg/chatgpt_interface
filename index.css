@@ -16,11 +16,11 @@ body {
 .header {
   height: 100vh;
   background-image: linear-gradient(
-      to right,
-      rgba(2, 53, 113, 0.8),
-      rgba(1, 19, 41, 0.8)
-    ),
-    url(./img/rm373batch5-18.jpg);
+    to right,
+    rgba(2, 53, 113),
+    rgba(1, 19, 41)
+  );
+  /* url(./img/rm373batch5-18.jpg); */
   /* url(./img/rm373batch5-18.jpg); */
   background-size: cover;
   position: relative;
@@ -31,7 +31,7 @@ body {
   color: white;
   font-size: 1.2em;
   text-transform: uppercase;
-  font-weight: 200;
+  font-weight: 400;
   display: inline-block;
   z-index: 2;
   padding: 10px;
@@ -40,26 +40,25 @@ body {
 
 .topnav a {
   color: white;
+  position: relative;
   text-decoration: none;
   padding: 10px;
+  transition: all 0.5s ease-in-out;
 }
-.topnav a:hover {
-  color: #6dccc4;
+nav a::before {
+  content: attr(data-item);
+  color: rgb(109, 204, 196);
+  position: absolute;
+  width: 0;
+  overflow: hidden;
 }
-.topnav a {
-  font-style: unset;
+
+nav a:hover,
+nav a:hover::before {
+  width: 100%;
+  transition: all 0.5s ease-in-out;
 }
-.topnav .dot {
-  width: 6px;
-  height: 6px;
-  background: #fddb3a;
-  border-radius: 50%;
-  opacity: 0;
-  -webkit-transform: translateX(30px);
-  transform: translateX(30px);
-  -webkit-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
-}
+
 .heading-primary {
   color: white;
   backface-visibility: hidden;
@@ -162,12 +161,9 @@ body {
 } */
 
 .section-requirement {
-  background-image: linear-gradient(
-      to right,
-      rgba(2, 53, 113, 0.8),
-      rgba(1, 19, 41, 0.8)
-    ),
-    url(./img/rm373batch5-18.jpg);
+  background-image: linear-gradient(to right, rgba(2, 53, 113), rgba(1, 19, 41))
+    /*,
+    url(./img/rm373batch5-18.jpg)*/;
   padding: 20rem 0;
   margin-top: 10rem;
   height: 50vh;
@@ -186,4 +182,23 @@ body {
   transform: translate(-50%, -50%);
   width: 50%;
   height: 40%;
+}
+.u-margin-top {
+  margin-top: -10rem;
+}
+.u-center-text {
+  text-align: center;
+}
+.heading-secondary {
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  font-weight: 400;
+  display: inline-block;
+  letter-spacing: 0.2rem;
+  transition: all 0.2s;
+}
+
+.heading-secondary:hover {
+  transform: skewY(2deg) skewX(15deg) scale(1.1);
+  text-shadow: 0.5rem 1rem 2rem rgba(black, 0.2);
 }

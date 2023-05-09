@@ -13,11 +13,10 @@
   </head>
   <body>
     <nav class="topnav">
-      <a href="" class="tab">Home</a>
-      <a href="" class="tab">About Us</a>
-      <a href="" class="tab">Our Approach</a>
-      <a href="" class="tab">ChatGPT</a>
-      <span class="dot"></span>
+      <a href="" data-item="Home" class="tab">Home</a>
+      <a href="" data-item="About" class="tab">About</a>
+      <a href="" data-item="Approach" class="tab">Approach</a>
+      <a href="" data-item="ChatGPT" class="tab">ChatGPT</a>
     </nav>
     <header class="header">
       <div class="header__text-box">
@@ -44,32 +43,37 @@
   <main>
     <section class="section-about"></section>
     <section class="section-requirement" id="section-requirement">
-      <form action="" class="project__form">
-        <div class="form__group">
-          <input
-            type="text"
-            class="project__name"
-            placeholder="Title of the project"
-          />
-          <label for="name" class="form__label">Title</label>
-        </div>
-        <div class="form__group">
-          <input
-            type="text"
-            class="project__description"
-            placeholder="Description of the project"
-          />
-          <label for="name" class="form__label">Description</label>
-        </div>
-        <div class="form__group">
-          <input
-            type="text"
-            class="project__field"
-            placeholder="Field of the project"
-          />
-          <label for="name" class="form__label">Field</label>
-        </div>
-      </form>
+      <div class="u-center-text u-margin-top">
+        <h2 class="heading-secondary">Ellicit Requirements</h2>
+      </div>
+      <div class="project-box">
+        <form action="" class="project__form">
+          <div class="form__group">
+            <input
+              type="text"
+              class="project__name"
+              placeholder="Title of the project"
+            />
+            <label for="name" class="form__label">Title</label>
+          </div>
+          <div class="form__group">
+            <input
+              type="text"
+              class="project__description"
+              placeholder="Description of the project"
+            />
+            <label for="name" class="form__label">Description</label>
+          </div>
+          <div class="form__group">
+            <input
+              type="text"
+              class="project__field"
+              placeholder="Field of the project"
+            />
+            <label for="name" class="form__label">Field</label>
+          </div>
+        </form>
+      </div>
     </section>
     <section class="section-approach"></section>
     <section class="section-chatgpt"></section>
