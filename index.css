@@ -232,6 +232,14 @@ form {
   text-transform: uppercase;
   font-weight: 400;
   display: inline-block;
+  background-image: linear-gradient(
+    to right,
+    rgb(109, 204, 196),
+    rgb(86, 40, 236)
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
   letter-spacing: 0.2rem;
   transition: all 0.2s;
 }
@@ -239,4 +247,29 @@ form {
 .heading-secondary:hover {
   transform: skewY(2deg) skewX(15deg) scale(1.1);
   text-shadow: 0.5rem 1rem 2rem rgba(black, 0.2);
+}
+
+.heading-tertiary {
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: rgba(2, 53, 113);
+}
+
+.paragraph {
+  font-size: 0.8rem;
+  color: rgba(2, 53, 113);
+}
+
+.paragraph:not(:last-child) {
+  margin-bottom: 3rem;
+}
+
+.row1 {
+  margin-left: 10px;
+  padding: 10px;
+}
+
+.u-margin-top-big {
+  margin-top: 3rem;
 }
