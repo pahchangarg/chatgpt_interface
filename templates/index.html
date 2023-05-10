@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" type="text/css" href="./index.css" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= 'index.css') }}" />
     <link
       href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900"
       rel="stylesheet"
@@ -32,7 +32,7 @@
           >
         </h1>
         <div class="header__image-box">
-          <img src="./img/cube.png" alt="logo" class="heading-image" />
+          <img src="{{ url_for('static', filename= 'img/cube.png') }}" alt="logo" class="heading-image" />
         </div>
         <a href="#section-requirement" class="btn btn--main btn--animated"
           >Start Elicitng</a
@@ -69,10 +69,12 @@
         <h2 class="heading-secondary">Ellicit Requirements</h2>
       </div>
       <div class="project-box">
-        <form action="" class="project__form">
+        <form class="project__form" method="POST">
           <div class="form__group">
             <label for="name" class="form__label">Title</label>
             <input
+              id = "title"
+              name="title"
               type="text"
               class="form__input"
               placeholder="Title of the project"
@@ -81,6 +83,8 @@
           <div class="form__group">
             <label for="name" class="form__label">Description</label>
             <input
+              id = "description"
+              name = "description"
               type="text"
               class="form__input"
               placeholder="Description of the project"
@@ -89,17 +93,30 @@
           <div class="form__group">
             <label for="name" class="form__label">Field</label>
             <input
+              id = "field"
+              name="field"
               type="text"
               class="form__input"
               placeholder="Field of the project"
             />
           </div>
           <div class="form__group">
-            <button class="btn btn--submit">Next &rarr;</button>
+            <!-- <div class="form__group">
+              <button class="btn btn--submit">Next &rarr;</button>
+            </div> -->
+            <input type="submit" value="Next" class="btn btn--submit">
           </div>
         </form>
       </div>
     </section>
+    <div id = 'Requirements' style="color: black;">
+      <p style="color: black;">Hello here are your Requirements
+        <br>
+      {{response}}
+        <br>
+        hello
+    </p>
+    </div>
     <section class="section-approach"></section>
     <section class="section-chatgpt"></section>
   </main>
