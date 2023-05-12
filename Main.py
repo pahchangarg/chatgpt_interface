@@ -9,24 +9,48 @@ import openai
 
 ############################ START OF FUNCTION DEFINITIONS ######################################
 def setAPISecretKey():
-    with open ("api_key.txt", "r") as file:
+    with open ("apiKey.txt", "r") as file:
         key = file.read()
     openai.api_key = key
 
+def setSystemPrompt(title, field):
+    prompt = """
+        Instructions: [
+            1. Act as a software requirements engineer tasked to elicit 12 functional and 6 non functional requirements of an application.
+            1. Generate only 5 additional questions first that would help more accurately answer the question 
+            2. The questions should be in JSON format with a question ID
+            3. Use the delimiter "SEP" after printing the additional questions.
+        ]
+
+        Task: [
+            You have to generate at least 12 functional and 6 non-functional requirements in shall style for the ```{title}``` application which can be used in the field of ```{field}``` whose description is given below. You must display the additional questions first in JSON format, before generating the requirements. Generate an ID as well for the requirements. 
+        ] 
+
+        Output Format: [
+            {'Q1': 'abc?', ..., 'Q5': 'xyz?'}
+            SEP
+            {'FR1': 'abc', ..., 'FR12': 'xyz'}
+            SEP
+            {'NFR1': 'abc', ..., 'NFR6': 'xyz'}
+        ]
+    """
+    return prompt
+
 def getCompletions(title, description, field):
     setAPISecretKey()
-    prompt = title + description + field
+    prompt = setSystemPrompt(title, field)
     completion = openai.ChatCompletion.create(
         model="gpt-3.5-turbo", 
-        messages=[{"role": "user", "content": prompt}]
+        messages=[{"role": "system", "content": prompt},
+                  {"role": "user", "content": description}]
         )
     return completion['choices'][0]['message']['content']
 
 def askGPT_BOT(title, description, field):
     bot = ChatGPT()
     bot.refresh_session()
-    prompt = title + description + field
-    response = bot.ask(str(prompt))
+    prompt = setSystemPrompt(title, field)
+    response = bot.ask(str(prompt) + description)
     return response
 ############################# END OF FUNCTION DEFINITIONS #######################################
 
@@ -47,9 +71,24 @@ def index():
         field = request.form['field']
         # response = getCompletions(title, description, field)
         # print(response)
-        response = askGPT_BOT(title, description, field)
+        response = getCompletions(title, description, field)
         print(response)
-        return render_template('index.html', response = response) 
+        
+        response = response.split('SEP')
+        
+        if len(response) == 3:
+            questions = response[0]
+            requirements = response[1:]
+        elif len(response) == 2:
+            questions = response[0]
+            requirements = response[1]
+        else:
+            questions = response[:response.index('}')+1]
+            requirements = response[response.index('}')+1:]
+        
+        print(requirements)
+        return render_template('index.html', questions = questions, requirements = requirements) 
+    
     return render_template('index.html') 
 
 
