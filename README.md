@@ -44,5 +44,5 @@ pip install -r requirements.txt
 ```
 3. Create a developer's account at OpenAI
 4. Setup a Secret Key for the [OpenAI API](https://platform.openai.com/account/api-keys)
-5. Store the Secret key in a text file named `'apiKey.txt'`
+5. Store the Secret key in a text file named `apiKey.txt`
 6. Run the `Main.py` file
