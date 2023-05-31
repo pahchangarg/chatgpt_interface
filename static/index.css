@@ -78,6 +78,8 @@ nav a:hover::before {
   font-size: 1rem;
   font-weight: 300;
   letter-spacing: 0.2rem;
+  justify-content: center;
+  margin-top: 20px;
 }
 
 .header__text-box {
@@ -184,7 +186,6 @@ form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: black;
 }
 
 .form__group:not(:last-child) {
@@ -251,15 +252,16 @@ form {
 }
 
 .heading-tertiary {
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-weight: 700;
   text-transform: uppercase;
   color: rgba(2, 53, 113);
 }
 
 .paragraph {
-  font-size: 0.8rem;
+  font-size: 20px;
   color: rgba(2, 53, 113);
+  margin-top: 20px;
 }
 
 .paragraph:not(:last-child) {
@@ -273,4 +275,51 @@ form {
 
 .u-margin-top-big {
   margin-top: 3rem;
+}
+
+.section-approach {
+  background-image: linear-gradient(
+    to right,
+    rgba(2, 53, 113),
+    rgba(1, 19, 41)
+  );
+  /* url(./img/rm373batch5-18.jpg); */
+  /* url(./img/rm373batch5-18.jpg); */
+  background-size: cover;
+  position: relative;
+}
+
+.approach-heading {
+  text-transform: uppercase;
+  display: block;
+  font-size: 2rem;
+  font-weight: 500;
+  /* letter-spacing: 0.5rem; */
+  text-align: center;
+  margin: 40px auto;
+  background-image: linear-gradient(
+    to right,
+    rgb(109, 204, 196),
+    rgb(86, 40, 236)
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  letter-spacing: 0.2rem;
+  transition: all 0.2s;
+}
+
+.approach-heading:hover {
+  transform: skewY(2deg) skewX(15deg) scale(1.1);
+  text-shadow: 0.5rem 1rem 2rem rgba(black, 0.2);
+}
+
+.approach-para {
+  display: block;
+  font-size: 1rem;
+  font-weight: 300;
+  letter-spacing: 0.2rem;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 40px;
 }
