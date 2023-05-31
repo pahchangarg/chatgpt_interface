@@ -184,6 +184,7 @@ form {
   display: flex;
   flex-direction: column;
   align-items: center;
+  color: black;
 }
 
 .form__group:not(:last-child) {
