@@ -65,7 +65,7 @@ app.config['SECRET_KEY'] = 'secretKeyForFlask' #can be changed to anything
 
 @app.route('/', methods=('GET', 'POST'))
 def index():
-    if request.method == 'POST': #if the new product form is submitted then get the information and add the new product to database
+    if request.method == 'POST': #if the form is submitted then get the information from the form fields
         title = request.form['title']
         description = request.form['description']
         field = request.form['field']
