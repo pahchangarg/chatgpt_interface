@@ -167,6 +167,7 @@ nav a:hover::before {
 }
 
 .project-box {
+  color: rgba(2, 53, 113);
   background-image: linear-gradient(
     to right,
     rgb(109, 204, 196),
@@ -195,7 +196,7 @@ form {
 .form__input {
   font-size: 1rem;
   font-family: inherit;
-  color: inherit;
+  color: rgba(2, 53, 113);
   padding: 0.5rem 1rem;
   border-radius: 2px;
   background-color: rgba(white, 0.5);

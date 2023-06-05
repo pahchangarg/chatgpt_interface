@@ -11,7 +11,7 @@ import openai
 
 
 def setAPISecretKey():
-    with open("apiKey.txt", "r") as file:
+    with open("/Users/pahchangarg/Desktop/react/chatgpt/apiKey.txt", "r") as file:
         key = file.read()
     openai.api_key = key
 
