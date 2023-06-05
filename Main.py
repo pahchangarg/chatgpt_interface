@@ -1,17 +1,20 @@
 ### IMPORT REQUIRED LIBRARIES ###
-from flask import Flask, render_template, request #flask framework
-from werkzeug.exceptions import abort #to get error messages on the browser
-from waitress import serve #start the local host server
+from flask import Flask, render_template, request  # flask framework
+from werkzeug.exceptions import abort  # to get error messages on the browser
+from waitress import serve  # start the local host server
 from chatgpt_wrapper import ChatGPT
-import webbrowser #to open web browser automatically
+import webbrowser  # to open web browser automatically
 import openai
 #################################
 
 ############################ START OF FUNCTION DEFINITIONS ######################################
+
+
 def setAPISecretKey():
-    with open ("apiKey.txt", "r") as file:
+    with open("apiKey.txt", "r") as file:
         key = file.read()
     openai.api_key = key
+
 
 def setSystemPrompt(title, field):
     prompt = """
@@ -36,15 +39,17 @@ def setSystemPrompt(title, field):
     """
     return prompt
 
+
 def getCompletions(title, description, field):
     setAPISecretKey()
     prompt = setSystemPrompt(title, field)
     completion = openai.ChatCompletion.create(
-        model="gpt-3.5-turbo", 
+        model="gpt-3.5-turbo",
         messages=[{"role": "system", "content": prompt},
                   {"role": "user", "content": description}]
-        )
+    )
     return completion['choices'][0]['message']['content']
+
 
 def askGPT_BOT(title, description, field):
     bot = ChatGPT()
@@ -57,7 +62,7 @@ def askGPT_BOT(title, description, field):
 
 ### DEFINING THE FLASK APP ###
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'secretKeyForFlask' #can be changed to anything
+app.config['SECRET_KEY'] = 'secretKeyForFlask'  # can be changed to anything
 #############################################
 
 
@@ -65,7 +70,7 @@ app.config['SECRET_KEY'] = 'secretKeyForFlask' #can be changed to anything
 
 @app.route('/', methods=('GET', 'POST'))
 def index():
-    if request.method == 'POST': #if the new product form is submitted then get the information and add the new product to database
+    if request.method == 'POST':  # if the new product form is submitted then get the information and add the new product to database
         title = request.form['title']
         description = request.form['description']
         field = request.form['field']
@@ -73,9 +78,9 @@ def index():
         # print(response)
         response = getCompletions(title, description, field)
         print(response)
-        
+
         response = response.split('SEP')
-        
+
         if len(response) == 3:
             questions = response[0]
             requirements = response[1:]
@@ -85,11 +90,11 @@ def index():
         else:
             questions = response[:response.index('}')+1]
             requirements = response[response.index('}')+1:]
-        
+
         print(requirements)
-        return render_template('index.html', questions = questions, requirements = requirements) 
-    
-    return render_template('index.html') 
+        return render_template('index.html', questions=questions, requirements=requirements)
+
+    return render_template('index.html')
 
 
 ### END OF APP ROUTE FUNCTIONS ###
