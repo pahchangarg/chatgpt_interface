@@ -71,7 +71,7 @@ def index():
         field = request.form['field']
         # response = getCompletions(title, description, field)
         # print(response)
-        response = getCompletions(title, description, field)
+        response = askGPT_BOT(title, description, field)
         print(response)
         
         response = response.split('SEP')
