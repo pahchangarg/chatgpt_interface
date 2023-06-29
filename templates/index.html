@@ -13,10 +13,10 @@
   </head>
   <body>
     <nav class="topnav">
-      <a href="" data-item="Home" class="tab">Home</a>
-      <a href="" data-item="About" class="tab">About</a>
-      <a href="" data-item="Approach" class="tab">Approach</a>
-      <a href="" data-item="ChatGPT" class="tab">ChatGPT</a>
+      <a href="/" data-item="Home" class="tab">Home</a>
+      <a href="#section-about" data-item="About" class="tab">About</a>
+      <a href="#section-approach" data-item="Approach" class="tab">Approach</a>
+      <a href="https://chat.openai.com/" data-item="ChatGPT" class="tab">ChatGPT</a>
     </nav>
     <header class="header">
       <div class="header__text-box">
@@ -49,9 +49,16 @@
       </div>
       <div class="row1">
         <h3 class="heading-tertiary u-margin-bottom-small">
-          Software Requirements using ChatGPT
+          Software Requirements using GPT
         </h3>
-        <p class="paragraph"></p>
+        <p class="paragraph">During software development, one of the most critical stages is Requirements Elicitation, 
+          in which the system designer after interacting with the stakeholders and end users list down the requirements 
+          of the software. This step is very time consuming and human labour is not very efficient. Poorly written
+           requirements can cause the project to fail completely. Presently there are no AI tools that can generate
+            quality requirements written in natural language. With the rise of Large Language Models like ChatGPT, 
+            this step can be automated. We explore the use of GPT models to generate software requirements written 
+            in natural language. These requirements can later be refined by having discussion with stakeholders.
+        </p>
 
         <h3 class="heading-tertiary u-margin-bottom-small">
           Prompt Engineering
@@ -116,22 +123,31 @@
         </form>
       </div>
     </section>
-    <div id="Requirements" style="color: black">
-      <p style="color: black">
-        Hello please answer the below questions
-        <br />
-        {{questions}}
-        <br />
-        Requirements
-        <br />
-        {{requirements}}
-      </p>
+    <div id="Requirements" style="color: black; place-items: center;">
+      <div class="u-center-text u-margin-top-big">
+      <h2 class="heading-secondary">Questions and Requirements</h2>
+    </div>
+    <div class="row2">
+        <h3 class="heading-tertiary">Questions</h3>
+        <ul>
+            {% for question in questions %}
+                <li class="qrtext">{{ question }}</li>
+            {% endfor %}
+        </ul>
+        <br>
+        <h3 class="heading-tertiary">Requirements</h3>
+        <ul>
+            {% for requirement in requirements %}
+                <li class="qrtext">{{ requirement }}</li>
+            {% endfor %}
+        </ul>
+      </div>
     </div>
     <section class="section-approach">
       <div class="row1">
         <h3 class="approach-heading">Approach</h3>
         <p class="approach-para">
-          The application uses the GPT-3.5 Large Language Model developed by
+          The application 'R-Automator' uses the GPT-3.5 Large Language Model developed by
           OpenAI to generate the requirements. We use the OpenAI API to interact
           with the model. With a help of pre-structured prompt based on the
           prompting guidelines and various prompt engineering techniques, we are
