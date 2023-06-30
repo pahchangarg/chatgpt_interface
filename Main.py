@@ -11,7 +11,7 @@ import openai
 
 
 def setAPISecretKey():
-    with open("/Users/pahchangarg/Desktop/react/chatgpt/apiKey.txt", "r") as file:
+    with open("/Users/pahchangarg/Desktop/untitled folder/chatgpt_interface/apiKey.txt", "r") as file:
         key = file.read()
     openai.api_key = key
 
@@ -76,7 +76,7 @@ def index():
         field = request.form['field']
         # response = getCompletions(title, description, field)
         # print(response)
-        response = askGPT_BOT(title, description, field)
+        response = getCompletions(title, description, field)
         print(response)
         
         set = response.split('SEP')

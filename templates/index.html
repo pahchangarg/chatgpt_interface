@@ -13,10 +13,14 @@
   </head>
   <body>
     <nav class="topnav">
-      <a href="/" data-item="Home" class="tab">Home</a>
+      <a href="#Requirements" data-item="Requirements" class="tab"
+        >Requirements</a
+      >
       <a href="#section-about" data-item="About" class="tab">About</a>
       <a href="#section-approach" data-item="Approach" class="tab">Approach</a>
-      <a href="https://chat.openai.com/" data-item="ChatGPT" class="tab">ChatGPT</a>
+      <a href="https://chat.openai.com/" data-item="ChatGPT" class="tab"
+        >ChatGPT</a
+      >
     </nav>
     <header class="header">
       <div class="header__text-box">
@@ -43,7 +47,7 @@
     </header>
   </body>
   <main>
-    <section class="section-about">
+    <section class="section-about" id="section-about">
       <div class="u-center-text u-margin-top-big">
         <h2 class="heading-secondary">What this tool is about?</h2>
       </div>
@@ -51,13 +55,18 @@
         <h3 class="heading-tertiary u-margin-bottom-small">
           Software Requirements using GPT
         </h3>
-        <p class="paragraph">During software development, one of the most critical stages is Requirements Elicitation, 
-          in which the system designer after interacting with the stakeholders and end users list down the requirements 
-          of the software. This step is very time consuming and human labour is not very efficient. Poorly written
-           requirements can cause the project to fail completely. Presently there are no AI tools that can generate
-            quality requirements written in natural language. With the rise of Large Language Models like ChatGPT, 
-            this step can be automated. We explore the use of GPT models to generate software requirements written 
-            in natural language. These requirements can later be refined by having discussion with stakeholders.
+        <p class="paragraph">
+          During software development, one of the most critical stages is
+          Requirements Elicitation, in which the system designer after
+          interacting with the stakeholders and end users list down the
+          requirements of the software. This step is very time consuming and
+          human labour is not very efficient. Poorly written requirements can
+          cause the project to fail completely. Presently there are no AI tools
+          that can generate quality requirements written in natural language.
+          With the rise of Large Language Models like ChatGPT, this step can be
+          automated. We explore the use of GPT models to generate software
+          requirements written in natural language. These requirements can later
+          be refined by having discussion with stakeholders.
         </p>
 
         <h3 class="heading-tertiary u-margin-bottom-small">
@@ -82,7 +91,7 @@
       <div class="u-center-text u-margin-top">
         <h2 class="heading-secondary">Elicit Requirements</h2>
       </div>
-      <div class="project-box">
+      <div class="project-box" id="Requirements">
         <form class="project__form" method="POST">
           <div class="form__group">
             <label for="name" class="form__label">Title</label>
@@ -123,23 +132,23 @@
         </form>
       </div>
     </section>
-    <div id="Requirements" style="color: black; place-items: center;">
+    <div id="show-requirement" style="color: black; place-items: center">
       <div class="u-center-text u-margin-top-big">
-      <h2 class="heading-secondary">Questions and Requirements</h2>
-    </div>
-    <div class="row2">
+        <h2 class="heading-secondary">Questions and Requirements</h2>
+      </div>
+      <div class="row2">
         <h3 class="heading-tertiary">Questions</h3>
         <ul>
-            {% for question in questions %}
-                <li class="qrtext">{{ question }}</li>
-            {% endfor %}
+          {% for question in questions %}
+          <li class="qrtext">{{ question }}</li>
+          {% endfor %}
         </ul>
-        <br>
+        <br />
         <h3 class="heading-tertiary">Requirements</h3>
         <ul>
-            {% for requirement in requirements %}
-                <li class="qrtext">{{ requirement }}</li>
-            {% endfor %}
+          {% for requirement in requirements %}
+          <li class="qrtext">{{ requirement }}</li>
+          {% endfor %}
         </ul>
       </div>
     </div>
@@ -147,19 +156,19 @@
       <div class="row1">
         <h3 class="approach-heading">Approach</h3>
         <p class="approach-para">
-          The application 'R-Automator' uses the GPT-3.5 Large Language Model developed by
-          OpenAI to generate the requirements. We use the OpenAI API to interact
-          with the model. With a help of pre-structured prompt based on the
-          prompting guidelines and various prompt engineering techniques, we are
-          able to generate the requirements of highest quality. The user is
-          required to enter the title, the description and the field of use of
-          their application that they want requirements for. This data is
-          combined with a prompt and with the help of the API, it is given as an
-          input to the GPT model. After collecting the output, we then extract a
-          set of software requirements and a set of five questions from it which
-          could help refine the quality of the requirements. If the user is not
-          satisfied with the requireemnts, they can answer those questions to
-          get better quality requirements.
+          The application 'R-Automator' uses the GPT-3.5 Large Language Model
+          developed by OpenAI to generate the requirements. We use the OpenAI
+          API to interact with the model. With a help of pre-structured prompt
+          based on the prompting guidelines and various prompt engineering
+          techniques, we are able to generate the requirements of highest
+          quality. The user is required to enter the title, the description and
+          the field of use of their application that they want requirements for.
+          This data is combined with a prompt and with the help of the API, it
+          is given as an input to the GPT model. After collecting the output, we
+          then extract a set of software requirements and a set of five
+          questions from it which could help refine the quality of the
+          requirements. If the user is not satisfied with the requireemnts, they
+          can answer those questions to get better quality requirements.
         </p>
       </div>
     </section>
